@@ -1,44 +1,44 @@
 # atomizer
 
-![preview](https://github.com/williamselaine/atomizer/raw/master/assets/darktheme.gif)
+![preview](https://github.com/williamselaine/atomizer/raw/main/assets/darktheme.gif)
 
 atomizer is a fully featured synthesizer and sequencer. design a single measure node, and give it effects, filters, envelope, and automation. you can then link it into the network to define where it will play in the sequence, and copy it infinitely with as many variations as you need.
 
 ## feature highlights
 
 ### responsive view
-![responsive](https://github.com/williamselaine/atomizer/raw/master/assets/responsive.png)
+![responsive](https://github.com/williamselaine/atomizer/raw/main/assets/responsive.png)
 
 on desktop, view the entire network while you create or edit nodes. on mobile, flip between screens easily.
 
 ### add notes
-![notes](https://github.com/williamselaine/atomizer/raw/master/assets/player.gif)
+![notes](https://github.com/williamselaine/atomizer/raw/main/assets/player.gif)
 
 define the notes for your node. if the node is playing, the active note will be highlighted.
 
 ### design your node
-![design](https://github.com/williamselaine/atomizer/raw/master/assets/node_designer.png)
+![design](https://github.com/williamselaine/atomizer/raw/main/assets/node_designer.png)
 
 adjust tons of synth parameters to your liking.
 
 ### automation
-![q](https://github.com/williamselaine/atomizer/raw/master/assets/q_automation.png)
-![volume](https://github.com/williamselaine/atomizer/raw/master/assets/volume_automation.png)
+![q](https://github.com/williamselaine/atomizer/raw/main/assets/q_automation.png)
+![volume](https://github.com/williamselaine/atomizer/raw/main/assets/volume_automation.png)
 
 use interactive graphs to automate parameters and change their values across the measure.
 
 ### clone
-![clone](https://github.com/williamselaine/atomizer/raw/master/assets/copy.png)
+![clone](https://github.com/williamselaine/atomizer/raw/main/assets/copy.png)
 
 once you've created a node, you can mutate it infinitely by copying its contents into another node.
 
 ### edit the network
-![edit](https://github.com/williamselaine/atomizer/raw/master/assets/edit.png)
+![edit](https://github.com/williamselaine/atomizer/raw/main/assets/edit.png)
 
 use the toolbar to select different edit modes, load and save your network, and adjust the view. the network operates on a simple algorithm: unconnected nodes will be played on every measure, chained nodes will be iterated across as measures pass.
 
 ### effects
-![effects](https://github.com/williamselaine/atomizer/raw/master/assets/effects_panel.png)
+![effects](https://github.com/williamselaine/atomizer/raw/main/assets/effects_panel.png)
 
 coming soon!
 
@@ -49,7 +49,7 @@ coming soon!
 ### player
   * play, pause, stop
   * variable tempo
-  * master volume
+  * main volume
   * key
   * disposition (major, minor, chromatic)
   * mute / solo selected nodes
