@@ -21,8 +21,8 @@ const useNavbarStyles = makeStyles({
       props.screenInfo.isMobile
         ? '100%'
         : props.labVisible && props.isOnHome
-        ? props.screenInfo.width - sizeConstants.SIDE_MENU_SIZE + 'px'
-        : '100%',
+          ? props.screenInfo.width - sizeConstants.SIDE_MENU_SIZE + 'px'
+          : '100%',
     border: props =>
       (props.labVisible && props.isOnHome) || props.screenInfo.isMobile
         ? props.theme && `3px solid ${props.theme.text}`

@@ -104,7 +104,7 @@ export default function AutomationEditor({ parameterToAutomate, forceUpdate }) {
               }
             }
           },
-          onClick: function(e, element) {
+          onClick: function (e, element) {
             // double click
             if (e.detail === 2 && dataset) {
               if (element.length === 1) {
@@ -132,11 +132,11 @@ export default function AutomationEditor({ parameterToAutomate, forceUpdate }) {
           dragOptions: {
             showTooltip: true
           },
-          onDragStart: function(e, element) {},
-          onDrag: function(e, datasetIndex, index, value) {
+          onDragStart: function (e, element) {},
+          onDrag: function (e, datasetIndex, index, value) {
             e.target.style.cursor = 'grabbing';
           },
-          onDragEnd: function(e, datasetIndex, index, value) {
+          onDragEnd: function (e, datasetIndex, index, value) {
             e.target.style.cursor = 'default';
             node.updateAutomationValues(dataset[0].data, parameterToAutomate.key);
           }

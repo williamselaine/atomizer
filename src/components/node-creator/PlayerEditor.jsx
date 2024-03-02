@@ -85,8 +85,8 @@ const PlayerEditor = ({ element }) => {
       backgroundColor: state.isSelected
         ? `${element.color} !important`
         : state.isFocused
-        ? `${parseToRgba(element.color, 0.3)} !important`
-        : ''
+          ? `${parseToRgba(element.color, 0.3)} !important`
+          : ''
     })
   };
   return (

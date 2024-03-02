@@ -58,9 +58,7 @@ export default function Navbar() {
         </div>
 
         <h1 className={isOpen ? classes.hide : classes.show}>
-          <NavLink to='/'>
-            atomizer
-          </NavLink>
+          <NavLink to='/'>atomizer</NavLink>
         </h1>
       </header>
       <div id='body' className={classes.body}>

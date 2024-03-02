@@ -15,9 +15,9 @@ const FilterSettings = ({ forceUpdate }) => {
     <div className={classes.row} key={forceUpdate}>
       {node && (
         <div
-          className={`${classes.content} ${node.automationEnabled.hpFilterFrequencyAutomation &&
-            node.automationEnabled.hpFilterQAutomation &&
-            classes.disabled}`}
+          className={`${classes.content} ${
+            node.automationEnabled.hpFilterFrequencyAutomation && node.automationEnabled.hpFilterQAutomation && classes.disabled
+          }`}
           key={elementIndex + 100}
         >
           <h4>high pass filter</h4>
@@ -36,9 +36,9 @@ const FilterSettings = ({ forceUpdate }) => {
       )}
       {node && (
         <div
-          className={`${classes.content} ${node.automationEnabled.lpFilterFrequencyAutomation &&
-            node.automationEnabled.lpFilterQAutomation &&
-            classes.disabled}`}
+          className={`${classes.content} ${
+            node.automationEnabled.lpFilterFrequencyAutomation && node.automationEnabled.lpFilterQAutomation && classes.disabled
+          }`}
           key={elementIndex + 200}
         >
           <h4>low pass filter</h4>

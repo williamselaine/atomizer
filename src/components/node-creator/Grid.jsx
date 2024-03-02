@@ -66,10 +66,9 @@ const Grid = ({ width, node, pianoRoll, setPianoRoll, height, color, save, note 
                 <td className={classes.tableCell} key={j}>
                   <button
                     key={rerender && rerender[0] === 'player' && rerender[1] + 50}
-                    className={`${classes.button} ${pianoRoll &&
-                      pianoRoll[i] &&
-                      pianoRoll[i][j] !== -1 &&
-                      classes.selected} ${isPlaying && classes.playing}`}
+                    className={`${classes.button} ${
+                      pianoRoll && pianoRoll[i] && pianoRoll[i][j] !== -1 && classes.selected
+                    } ${isPlaying && classes.playing}`}
                     onMouseDown={() => setNote(i, j)}
                     onPointerEnter={e => setNote(i, j, e)}
                   />

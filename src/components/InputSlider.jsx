@@ -63,8 +63,9 @@ const InputSlider = ({
 
   return (
     <div
-      className={`${vertical ? classes.verticalSliderGroup : classes.sliderGroup} sliderContainer ${disabled &&
-        classes.disabled}`}
+      className={`${vertical ? classes.verticalSliderGroup : classes.sliderGroup} sliderContainer ${
+        disabled && classes.disabled
+      }`}
     >
       <label className={`${classes.sliderLabel} ${smallLabel && classes.smallLabel} ${vertical && classes.verticalLabel}`}>
         {label}

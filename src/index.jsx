@@ -11,16 +11,16 @@ import { createStore, combineReducers } from 'redux';
 const rootReducer = combineReducers({
   network: networkReducer,
   view: viewReducer,
-  config: configReducer,
-})
+  config: configReducer
+});
 
 const store = createStore(rootReducer);
 
 ReactDOM.render(
-    <Provider store={store}>
-        <DndProvider backend={HTML5Backend}>
-          <App />
-        </DndProvider>
-    </Provider>,
+  <Provider store={store}>
+    <DndProvider backend={HTML5Backend}>
+      <App />
+    </DndProvider>
+  </Provider>,
   document.getElementById('root')
 );

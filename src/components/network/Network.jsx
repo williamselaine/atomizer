@@ -41,10 +41,10 @@ const Network = () => {
   }, [doFit]);
 
   const events = {
-    doubleClick: function(event) {
+    doubleClick: function (event) {
       dispatch(event.nodes.length ? viewActions.setLabVisible(true) : networkActions.addNodeFromClick(event));
     },
-    dragStart: function(event) {
+    dragStart: function (event) {
       if (!event.nodes.length && multiSelectState) {
         document.addEventListener('mousemove', _onMouseMove);
         setDragStart({
@@ -54,7 +54,7 @@ const Network = () => {
         });
       }
     },
-    dragEnd: function(event) {
+    dragEnd: function (event) {
       if (!event.nodes.length && multiSelectState && dragStart.canvas) {
         dispatch(networkActions.multiselect(dragStart, event));
         setDragStart(null);
@@ -62,10 +62,10 @@ const Network = () => {
       }
       document.removeEventListener('mousemove', _onMouseMove);
     },
-    selectNode: function(event) {
+    selectNode: function (event) {
       dispatch(networkActions.filterSelection(event.nodes));
     },
-    deselectNode: function(event) {
+    deselectNode: function (event) {
       dispatch(networkActions.filterSelection(event.nodes));
     }
   };

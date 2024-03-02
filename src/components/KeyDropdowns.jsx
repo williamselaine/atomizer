@@ -89,8 +89,8 @@ const KeyDropdowns = () => {
       backgroundColor: state.isSelected
         ? `${element.color} !important`
         : state.isFocused
-        ? `${parseToRgba(element.color, 0.3)} !important`
-        : ''
+          ? `${parseToRgba(element.color, 0.3)} !important`
+          : ''
     }),
     menuPortal: styles => ({ ...styles, zIndex: 10000 }),
     indicatorSeparator: styles => ({ display: 'none' })

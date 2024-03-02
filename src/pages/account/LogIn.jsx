@@ -36,8 +36,7 @@ const LogInForm = () => {
 
   const classes = AccountStyles({ theme: theme });
 
-  const onSubmit = () => {
-  };
+  const onSubmit = () => {};
 
   const onChange = event => {
     setContent({ ...content, [event.target.name]: event.target.value });

@@ -37,8 +37,7 @@ const SaveNetworkModal = React.forwardRef(({ cancel, confirm }, ref) => {
     cancel();
   }, [cancel, dispatch]);
 
-  const doSave = useCallback(() => {
-  }, [confirm, id, name, networkToSave, onCancel]);
+  const doSave = useCallback(() => {}, [confirm, id, name, networkToSave, onCancel]);
 
   if (shouldSaveNetwork && loadedNetworkName) {
     doSave();
@@ -49,8 +48,7 @@ const SaveNetworkModal = React.forwardRef(({ cancel, confirm }, ref) => {
   }
 
   useEffect(() => {
-    const _onSave = () => {
-    };
+    const _onSave = () => {};
 
     const defaultContent = {
       header: 'name your bop',

@@ -23,8 +23,7 @@ const PasswordResetForm = ({ classes }) => {
 
   const dispatch = useDispatch();
 
-  const onSubmit = () => {
-  };
+  const onSubmit = () => {};
 
   const onChange = event => {
     setEmail(event.target.value);
