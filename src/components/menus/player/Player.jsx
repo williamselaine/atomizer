@@ -36,7 +36,8 @@ const Player = ({ id, left, top, hideSourceOnDrag, setInteractible }) => {
   usePlayerHotkeys();
 
   const [{ isDragging }, drag] = useDrag({
-    item: { id, left, top, type: ItemTypes.PLAYER },
+    item: { id, left, top },
+    type: ItemTypes.PLAYER,
     collect: monitor => ({
       isDragging: monitor.isDragging()
     }),

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { makeStyles } from '@material-ui/styles';
-import Icon from '../components/Icon';
+import { makeStyles } from '@mui/styles';
+import Icon from './Icon';
 import IconSet from '../constants/icon-set';
 import Grayscale from '../constants/grayscale';
 

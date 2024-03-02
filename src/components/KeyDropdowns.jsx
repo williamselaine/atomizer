@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { networkActions, configActions } from '../redux/actions';
 import Select from 'react-select';
 import { keyArrs, keyMap, dispositionOptions } from '../constants/frequencies';
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles } from '@mui/styles';
 import elements from '../constants/elements';
 import { parseToRgba } from '../utils/color-utils';
 

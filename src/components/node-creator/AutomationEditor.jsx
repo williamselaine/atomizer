@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import Chart from 'chart.js';
 import 'chartjs-plugin-dragdata';
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles } from '@mui/styles';
 import { panBounds, filterBounds } from '../../constants/audio-data';
 import { parseToRgba } from '../../utils/color-utils';
 

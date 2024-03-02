@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import * as ROUTES from '../../constants/routes';
 import { useSelector, useDispatch } from 'react-redux';
-import { useFirebase } from 'react-redux-firebase';
 import AccountStyles from './AccountStyles';
 import { configActions } from '../../redux/actions';
 import { LogInLink } from './LogIn';
@@ -22,19 +21,9 @@ const PasswordResetForm = ({ classes }) => {
   const [email, setEmail] = useState('');
   const login = useSelector(state => state.config.login);
 
-  const firebase = useFirebase();
   const dispatch = useDispatch();
 
-  const onSubmit = event => {
-    firebase
-      .resetPassword(email)
-      .then(() => {
-        dispatch(configActions.setLogin({ valid: false, message: `a message has been sent to ${email}` }));
-      })
-      .catch(error => {
-        dispatch(configActions.setLogin({ valid: false, message: error.message }));
-      });
-    event.preventDefault();
+  const onSubmit = () => {
   };
 
   const onChange = event => {

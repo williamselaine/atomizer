@@ -2,11 +2,9 @@ import React, { useState } from 'react';
 import { SignUpLink } from './SignUp';
 import { PasswordResetLink } from './PasswordReset';
 import * as Routes from '../../constants/routes';
-import { Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import AccountStyles from './AccountStyles';
-import { useSelector, useDispatch } from 'react-redux';
-import { useFirebase } from 'react-redux-firebase';
-import { configActions } from '../../redux/actions';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const LogIn = () => {
@@ -37,20 +35,8 @@ const LogInForm = () => {
   }
 
   const classes = AccountStyles({ theme: theme });
-  const firebase = useFirebase();
-  const dispatch = useDispatch();
 
-  const onSubmit = event => {
-    const { email, password } = content;
-    event.preventDefault();
-    firebase
-      .login({ email: email, password: password })
-      .then(() => {
-        dispatch(configActions.setLogin({ valid: true, message: null }));
-      })
-      .catch(e => {
-        dispatch(configActions.setLogin({ valid: false, message: true }));
-      });
+  const onSubmit = () => {
   };
 
   const onChange = event => {
@@ -80,7 +66,7 @@ const LogInForm = () => {
           </p>
         )}
       </form>
-      {login && login.valid && <Redirect to={Routes.HOME} />}
+      {login && login.valid && <Navigate to={Routes.HOME} />}
     </>
   );
 };

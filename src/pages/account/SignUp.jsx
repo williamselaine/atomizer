@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import * as ROUTES from '../../constants/routes';
 import { useSelector, useDispatch } from 'react-redux';
-import { useFirebase } from 'react-redux-firebase';
 import AccountStyles from './AccountStyles';
 import { configActions } from '../../redux/actions';
 
@@ -30,21 +29,12 @@ const SignUpForm = ({ classes }) => {
     error: null
   };
   const [content, setContent] = useState({ ...INITIAL_STATE });
-  const firebase = useFirebase();
   const dispatch = useDispatch();
 
   const onSubmit = event => {
-    const { username, email, passwordOne } = content;
+    const { username, email } = content;
     dispatch(configActions.setFormFields(username, email));
 
-    firebase
-      .createUser({ email: email, password: passwordOne }, { username: username, email: email })
-      .then(() => {
-        dispatch(configActions.setLogin({ valid: true, message: false }));
-      })
-      .catch(error => {
-        dispatch(configActions.setLogin({ valid: false, message: error.message }));
-      });
     event.preventDefault();
   };
 
@@ -96,7 +86,7 @@ const SignUpForm = ({ classes }) => {
 
         {login && login.message && <p className={`${classes.message} ${classes.offset}`}>{login.message}</p>}
       </form>
-      {login && login.valid && <Redirect to={ROUTES.HOME} />}
+      {login && login.valid && <Navigate to={ROUTES.HOME} />}
     </>
   );
 };

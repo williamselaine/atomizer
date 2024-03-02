@@ -21,7 +21,8 @@ const EditorToolbar = ({ id, right, top, hideSourceOnDrag, setInteractible }) =>
   const editorData = useEditorData();
   const dispatch = useDispatch();
   const [{ isDragging }, drag] = useDrag({
-    item: { id, right, top, type: ItemTypes.PLAYER },
+    item: { id, right, top },
+    type: ItemTypes.PLAYER,
     collect: monitor => ({
       isDragging: monitor.isDragging()
     }),

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles } from '@mui/styles';
 
 const ElementTile = ({ customStyle, element }) => {
   const theme = useSelector(state => state.network.theme);

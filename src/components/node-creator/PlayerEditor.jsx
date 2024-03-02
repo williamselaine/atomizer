@@ -3,7 +3,7 @@ import ModeSelector from '../ModeSelector';
 import { useSelector } from 'react-redux';
 import Select from 'react-select';
 import useForceUpdate from '../../utils/useForceUpdate';
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles } from '@mui/styles';
 import { parseToRgba } from '../../utils/color-utils';
 
 const octaves = [

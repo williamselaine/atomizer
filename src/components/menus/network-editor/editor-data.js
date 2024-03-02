@@ -9,64 +9,6 @@ const useEditorData = () => {
   const multiSelectState = useSelector(state => state.network.multiSelectState);
   const organizeState = useSelector(state => state.network.organizeState);
   return {
-    file: [
-      {
-        label: 'save',
-        modal: SaveNetworkModal,
-        action: networkActions.setShouldSaveNetwork,
-        alwaysShowModal: false,
-        icon: {
-          path: IconSet.save,
-          viewBox: '0 0 600 600'
-        },
-        shortcut: ''
-      },
-      {
-        label: 'save as...',
-        modal: SaveNetworkModal,
-        alwaysShowModal: true,
-        icon: {
-          path: IconSet.saveAs,
-          viewBox: '0 0 20 20'
-        },
-        shortcut: ''
-      },
-      {
-        label: 'open network',
-        modalAction: networkActions.loadNetwork,
-        modal: LoadNetworkModal,
-        alwaysShowModal: true,
-        icon: {
-          path: IconSet.load,
-          viewBox: '0 0 50 50'
-        },
-        shortcut: ''
-      },
-      {
-        label: 'new network',
-        modalAction: networkActions.newNetwork,
-        modal: NewNetworkModal,
-        alwaysShowModal: true,
-        global: true,
-        icon: {
-          path: IconSet.newFile,
-          viewBox: '0 0 50 50'
-        },
-        shortcut: ''
-      },
-      {
-        label: 'delete network',
-        modalAction: networkActions.newNetwork,
-        modal: DeleteNetworkModal,
-        alwaysShowModal: true,
-        global: true,
-        icon: {
-          path: IconSet.delete,
-          viewBox: '0 0 50 50'
-        },
-        shortcut: ''
-      }
-    ],
     edit: [
       {
         label: 'add node',

@@ -1,16 +1,11 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import DeleteModalStyles from './DeleteModalStyles';
-import { useFirestore, useFirestoreConnect } from 'react-redux-firebase';
 
 const DeleteNetworkModal = React.forwardRef(({ cancel, confirm }, ref) => {
   const theme = useSelector(state => state.network.theme);
-  const profile = useSelector(state => state.firebase.profile);
-  const id = !profile.isEmpty ? profile.email : 'default';
   const loadedNetworkName = useSelector(state => state.network.loadedNetworkName);
 
-  useFirestoreConnect(() => [{ collection: 'networks', doc: id }]);
-  const firestore = useFirestore();
   const classes = DeleteModalStyles({ theme: theme });
 
   if (!loadedNetworkName || profile.isEmpty) {
@@ -19,17 +14,6 @@ const DeleteNetworkModal = React.forwardRef(({ cancel, confirm }, ref) => {
   }
 
   const _onConfirm = () => {
-    const networkRef = firestore.collection('networks').doc(id);
-    networkRef.get().then(docSnapshot => {
-      if (docSnapshot.exists) {
-        let newValues = docSnapshot.data();
-        delete newValues[loadedNetworkName];
-        firestore
-          .collection('networks')
-          .doc(profile.email)
-          .set(newValues);
-      }
-    });
     confirm();
     cancel();
   };

@@ -1,11 +1,8 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { configActions, networkActions } from '../redux/actions';
-import { isEmpty } from 'react-redux-firebase';
 
 const useLoadFirestoreValues = (theme, hotkeys, login) => {
-  const auth = useSelector(state => state.firebase.auth);
-  const profile = useSelector(state => state.firebase.profile);
   const dispatch = useDispatch();
 
   useEffect(() => {

@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles } from '@mui/styles';
 import { useDrop } from 'react-dnd';
 import EditorToolbar from './EditorToolbar';
 import ItemTypes from '../../../config/ItemTypes';

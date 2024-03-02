@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles } from '@mui/styles';
 import IconSet from '../../constants/icon-set';
 import { useSelector } from 'react-redux';
 import Icon from '../Icon';

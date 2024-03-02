@@ -1,12 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles } from '@mui/styles';
 import { useDrop } from 'react-dnd';
 import Player from './Player';
 import ItemTypes from '../../../config/ItemTypes';
 import { v4 as uuidv4 } from 'uuid';
 import { useSelector } from 'react-redux';
-import { sizeConstants } from '../../../config/';
+import { sizeConstants } from '../../../config';
 const PlayerContainer = () => {
   const screenInfo = useSelector(state => state.view.screenInfo);
   const [player, setPlayer] = useState({ id: uuidv4(), top: screenInfo.height - 150, left: screenInfo.width / 2 - 225 });

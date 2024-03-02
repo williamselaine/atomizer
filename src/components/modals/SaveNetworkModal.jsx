@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import DeleteModalStyles from './DeleteModalStyles';
-import { useFirestore, useFirestoreConnect } from 'react-redux-firebase';
-import { Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import * as Routes from '../../constants/routes';
 import { networkActions } from '../../redux/actions';
 
@@ -30,11 +29,7 @@ const SaveNetworkModal = React.forwardRef(({ cancel, confirm }, ref) => {
   const shouldSaveNetwork = useSelector(state => state.network.shouldSaveNetwork);
   const theme = useSelector(state => state.network.theme);
   const classes = DeleteModalStyles({ theme: theme });
-  const profile = useSelector(state => state.firebase.profile);
-  const id = !profile.isEmpty ? profile.email : 'default';
 
-  useFirestoreConnect(() => [{ collection: 'networks', doc: id }]);
-  const firestore = useFirestore();
   const dispatch = useDispatch();
 
   const onCancel = useCallback(() => {
@@ -43,29 +38,9 @@ const SaveNetworkModal = React.forwardRef(({ cancel, confirm }, ref) => {
   }, [cancel, dispatch]);
 
   const doSave = useCallback(() => {
-    const networkRef = firestore.collection('networks').doc(id);
-    networkRef.get().then(docSnapshot => {
-      if (docSnapshot.exists) {
-        const newNetworks = { ...docSnapshot.data(), [name]: { ...networkToSave, name: name } };
-        firestore
-          .collection('networks')
-          .doc(id)
-          .set(newNetworks)
-          .then(confirm && confirm())
-          .then(onCancel());
-      } else {
-        firestore
-          .collection('networks')
-          .doc(id)
-          .set({ [name]: networkToSave, name: name })
-          .then(confirm && confirm())
-          .then(onCancel());
-      }
-    });
-  }, [confirm, firestore, id, name, networkToSave, onCancel]);
+  }, [confirm, id, name, networkToSave, onCancel]);
 
   if (shouldSaveNetwork && loadedNetworkName) {
-    console.log('clicked save');
     doSave();
   }
 
@@ -75,28 +50,6 @@ const SaveNetworkModal = React.forwardRef(({ cancel, confirm }, ref) => {
 
   useEffect(() => {
     const _onSave = () => {
-      if (networkToSave && name && !profile.isEmpty) {
-        const networkRef = firestore.collection('networks').doc(id);
-        networkRef.get().then(docSnapshot => {
-          if (docSnapshot.exists) {
-            if (docSnapshot.data()[name]) {
-              setContent({
-                header: 'look out',
-                content: <p className={classes.text}>a file named {name} already exists. do you want to overwrite it?</p>,
-                cancel: () => setContent(defaultContent),
-                buttonClass: classes.wideButton,
-                buttonContainerClass: classes.wideButtonContainer,
-                confirm: doSave,
-                confirmText: 'overwrite'
-              });
-            } else {
-              doSave();
-            }
-          } else {
-            doSave();
-          }
-        });
-      }
     };
 
     const defaultContent = {
@@ -118,7 +71,7 @@ const SaveNetworkModal = React.forwardRef(({ cancel, confirm }, ref) => {
           }
         : defaultContent
     );
-  }, [cancel, classes, confirm, dispatch, doSave, firestore, id, name, networkToSave, profile]);
+  }, [cancel, classes, confirm, dispatch, doSave, id, name, networkToSave, profile]);
 
   return (
     <div className={classes.content} ref={ref}>
@@ -137,7 +90,7 @@ const SaveNetworkModal = React.forwardRef(({ cancel, confirm }, ref) => {
               {content.confirmText}
             </button>
           </div>
-          {redirect && <Redirect to={Routes.LOG_IN} />}
+          {redirect && <Navigate to={Routes.LOG_IN} />}
         </>
       )}
     </div>

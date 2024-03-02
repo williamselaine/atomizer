@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import DeleteModalStyles from './DeleteModalStyles';
-import { useFirestore, useFirestoreConnect } from 'react-redux-firebase';
-import { Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import * as Routes from '../../constants/routes';
 import { networkActions } from '../../redux/actions';
 import Player from '../../audio/Player';
@@ -10,30 +9,17 @@ import Player from '../../audio/Player';
 const SaveNetworkModal = React.forwardRef(({ cancel }, ref) => {
   const [redirect, setRedirect] = useState(false);
   const [content, setContent] = useState(null);
-  const [contentLoaded, setContentLoaded] = useState(false);
-  const [list, setList] = useState(null);
+  const [contentLoaded] = useState(false);
+  const [list] = useState(null);
   const theme = useSelector(state => state.network.theme);
   const classes = DeleteModalStyles({ theme: theme });
-  const profile = useSelector(state => state.firebase.profile);
-  const id = !profile.isEmpty ? profile.email : 'default';
 
-  useFirestoreConnect(() => [{ collection: 'networks', doc: id }]);
-  const firestore = useFirestore();
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const networkRef = firestore.collection('networks').doc(id);
-    (async () => {
-      await networkRef.get().then(docSnapshot => {
-        if (docSnapshot.exists) {
-          setList(docSnapshot.data());
-        }
-      });
-      setContentLoaded(true);
-    })();
     Player.beatIndex = 0;
     Player.measuresPlayed = 0;
-  }, [firestore, id]);
+  }, [id]);
 
   useEffect(() => {
     const selectItem = name => {
@@ -89,7 +75,7 @@ const SaveNetworkModal = React.forwardRef(({ cancel }, ref) => {
           }
         : defaultContent
     );
-  }, [cancel, classes, contentLoaded, dispatch, firestore, id, list, profile]);
+  }, [cancel, classes, contentLoaded, dispatch, id, list, profile]);
 
   return (
     <div className={classes.content} ref={ref}>
@@ -110,7 +96,7 @@ const SaveNetworkModal = React.forwardRef(({ cancel }, ref) => {
               </button>
             )}
           </div>
-          {redirect && <Redirect to={Routes.LOG_IN} />}
+          {redirect && <Navigate to={Routes.LOG_IN} />}
         </>
       )}
     </div>
