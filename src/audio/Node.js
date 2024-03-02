@@ -1,6 +1,5 @@
 import defaultAudioData from '../constants/audio-data';
 import Audio from './Audio';
-import { transformElementToPureObject } from './PianoRollData';
 import { v4 as uuidv4 } from 'uuid';
 
 class Node {
@@ -126,31 +125,6 @@ class Node {
       default:
     }
     this.nodes.gain.gain.setTargetAtTime(this.solo === -1 ? 0 : this.volume, Audio.context.currentTime, 0.03);
-  }
-  transformToPureObject() {
-    return {
-      ...nodesToPureObject(this.nodes),
-      volume: this.volume,
-      intensity: this.intensity,
-      mode: this.mode,
-      notes: transformElementToPureObject(this.notes),
-      octave: this.octave,
-      waveforms: this.waveforms,
-      attack: this.attack,
-      decay: this.decay,
-      sustain: this.sustain,
-      release: this.release,
-      pan: this.pan,
-      mute: this.mute,
-      solo: this.solo,
-      automationEnabled: this.automationEnabled,
-      volumeAutomation: this.volumeAutomation,
-      panAutomation: this.panAutomation,
-      hpFilterFrequencyAutomation: this.hpFilterFrequencyAutomation,
-      hpFilterQAutomation: this.hpFilterQAutomation,
-      lpFilterFrequencyAutomation: this.lpFilterFrequencyAutomation,
-      lpFilterQAutomation: this.lpFilterQAutomation
-    };
   }
   updateAutomationValues(dataset, key) {
     this[key] = dataset.slice();

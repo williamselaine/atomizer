@@ -86,7 +86,7 @@ const networkReducer = (state = defaultState, action) => {
             ...state.options,
             manipulation: {
               ...state.options.manipulation,
-              addEdge: function(nodeData, callback) {
+              addEdge: function (nodeData, callback) {
                 if (
                   nodeData.from !== nodeData.to &&
                   noLoop(nodeData.from, nodeData.to, state.network.body.nodes) &&
@@ -180,13 +180,7 @@ const networkReducer = (state = defaultState, action) => {
         n.push(node.id);
       });
 
-      if (
-        n.sort().join(',') ===
-        state.network
-          .getSelectedNodes()
-          .sort()
-          .join(',')
-      ) {
+      if (n.sort().join(',') === state.network.getSelectedNodes().sort().join(',')) {
         state.network.unselectAll();
         return { ...state, selectedNodes: null };
       } else {

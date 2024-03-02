@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles } from '@mui/styles';
 import { sizeConstants } from '../../../config';
 
 const PlayerStyles = makeStyles({
@@ -7,8 +7,8 @@ const PlayerStyles = makeStyles({
       props.screenInfo && props.screenInfo.isMobile
         ? '100%'
         : props.labVisible && props.screenInfo.width < 1200
-        ? props.screenInfo.width - sizeConstants.SIDE_MENU_SIZE + 'px'
-        : '450px',
+          ? props.screenInfo.width - sizeConstants.SIDE_MENU_SIZE + 'px'
+          : '450px',
     height: '80px',
     border: props => props.theme && `3px solid ${props.theme.text}`,
     backgroundColor: props => props.theme && props.theme.background,

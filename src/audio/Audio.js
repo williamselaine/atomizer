@@ -40,25 +40,25 @@ class Audio {
       window.AudioContext = window.webkitAudioContext;
       if (window.AudioContext.prototype.hasOwnProperty('createOscillator')) {
         window.AudioContext.prototype.internal_createOscillator = window.AudioContext.prototype.createOscillator;
-        window.AudioContext.prototype.createOscillator = function() {
+        window.AudioContext.prototype.createOscillator = function () {
           var node = this.internal_createOscillator();
           if (!node.start) {
-            node.start = function(when) {
+            node.start = function (when) {
               this.noteOn(when || 0);
             };
           } else {
             node.internal_start = node.start;
-            node.start = function(when) {
+            node.start = function (when) {
               node.internal_start(when || 0);
             };
           }
           if (!node.stop) {
-            node.stop = function(when) {
+            node.stop = function (when) {
               this.noteOff(when || 0);
             };
           } else {
             node.internal_stop = node.stop;
-            node.stop = function(when) {
+            node.stop = function (when) {
               node.internal_stop(when || 0);
             };
           }

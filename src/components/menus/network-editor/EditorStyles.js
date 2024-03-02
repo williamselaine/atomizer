@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles } from '@mui/styles';
 import { sizeConstants } from '../../../config';
 
 const EditorStyles = makeStyles({
@@ -7,10 +7,10 @@ const EditorStyles = makeStyles({
       props.screenInfo.isMobile && !props.isCollapsed
         ? '100%'
         : !props.screenInfo.isMobile && props.screenInfo.width < 1200 && props.labVisible && !props.isCollapsed
-        ? props.screenInfo.width - sizeConstants.SIDE_MENU_SIZE + 'px'
-        : props.isCollapsed
-        ? '40px'
-        : '265px',
+          ? props.screenInfo.width - sizeConstants.SIDE_MENU_SIZE + 'px'
+          : props.isCollapsed
+            ? '40px'
+            : '265px',
     display: 'flex',
     flexDirection: 'column',
     height: '40px',

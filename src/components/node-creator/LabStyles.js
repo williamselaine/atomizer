@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles } from '@mui/styles';
 import { sizeConstants } from '../../config';
 
 const LabStyles = makeStyles({
