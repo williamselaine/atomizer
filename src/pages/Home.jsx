@@ -6,11 +6,12 @@ import MenuPanel from '../components/menus/main/MenuPanel';
 import Lab from '../components/node-creator/Lab';
 import PlayerContainer from '../components/menus/player/PlayerContainer';
 import EditorContainer from '../components/menus/network-editor/EditorContainer';
+import WarnMobileModal from '../components/modals/WarnMobileModal';
 import Icon from '../components/Icon';
 import IconSet from '../constants/icon-set';
 import { useResizer, useHotkeys, useElementIndexHotkeys } from '../utils/hotkeys';
 import { useSelector, useDispatch } from 'react-redux';
-import { viewActions } from '../redux/actions';
+import { configActions, viewActions, networkActions } from '../redux/actions';
 import usePlayer from '../audio/usePlayer';
 import HomeStyles from './HomeStyles';
 
@@ -27,6 +28,13 @@ const Home = () => {
   useEffect(() => {
     setShow(true);
   }, []);
+
+  useEffect(() => {
+    if(screenInfo.isMobile) {
+      dispatch(configActions.setModal(WarnMobileModal));
+      dispatch(networkActions.setModalVisible(true));
+    }
+  }, [screenInfo.isMobile])
 
   useHotkeys(audio.nodeData && Object.keys(audio.nodeData).length > 0 && !modalVisible);
   useResizer();

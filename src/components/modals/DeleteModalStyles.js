@@ -3,6 +3,7 @@ import { makeStyles } from '@mui/styles';
 const DeleteModalStyles = makeStyles({
   content: {
     width: '350px',
+    maxWidth: '500px',
     height: '200px',
     backgroundColor: 'transparent',
     opacity: '1',
@@ -19,6 +20,15 @@ const DeleteModalStyles = makeStyles({
   text: {
     height: '50px',
     backgroundColor: 'transparent'
+  },
+  longText: {
+    padding: '12px 0px',
+    backgroundColor: 'transparent'
+  },
+  subtitle: {
+    color: props => props.theme && props.theme.secondaryText,
+    fontStlye: 'italic',
+    display: 'block',
   },
   buttonContainer: {
     width: '140px',
