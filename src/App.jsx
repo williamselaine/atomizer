@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { useSelector } from 'react-redux';
 import { disableBodyScroll } from 'body-scroll-lock';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import LoadingScreen from './components/LoadingScreen';
 import Navbar from './components/menus/navbar/Navbar';
 import Audio from './audio/Audio';
@@ -40,10 +40,10 @@ const App = () => {
 
   return (
     <ThemeProvider theme={_theme}>
-      <BrowserRouter>
+      <HashRouter>
         <LoadingScreen show={showLoadingScreen} />
         {!showLoadingScreen && <Navbar />}
-      </BrowserRouter>
+      </HashRouter>
     </ThemeProvider>
   );
 };

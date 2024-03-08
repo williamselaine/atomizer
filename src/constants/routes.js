@@ -1,4 +1,4 @@
-export const HOME = '/atomizer';
+export const HOME = '/';
 export const SIGN_UP = '/signup';
 export const LOG_IN = '/login';
 export const SETTINGS = '/settings';
