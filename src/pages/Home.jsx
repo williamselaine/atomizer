@@ -59,12 +59,6 @@ const Home = () => {
       <Network />
       <Lab />
       <button
-        className={`${classes.button} ${classes.menuButton} ${screenInfo.isMobile && classes.menuButtonMobile}`}
-        onClick={() => dispatch(viewActions.setMenuVisible(!menuVisible))}
-      >
-        {getExpandIcon(menuVisible, [180, 0])}
-      </button>
-      <button
         className={`${classes.button} ${screenInfo.isMobile ? classes.labButtonMobile : classes.labButton}`}
         onClick={() => dispatch(viewActions.setLabVisible(!labVisible))}
       >
