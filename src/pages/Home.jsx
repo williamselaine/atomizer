@@ -2,7 +2,6 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState, useEffect } from 'react';
 import Network from '../components/network/Network';
-import MenuPanel from '../components/menus/main/MenuPanel';
 import Lab from '../components/node-creator/Lab';
 import PlayerContainer from '../components/menus/player/PlayerContainer';
 import EditorContainer from '../components/menus/network-editor/EditorContainer';
@@ -58,7 +57,6 @@ const Home = () => {
       <PlayerContainer />
       <EditorContainer />
       <Network />
-      <MenuPanel />
       <Lab />
       <button
         className={`${classes.button} ${classes.menuButton} ${screenInfo.isMobile && classes.menuButtonMobile}`}
